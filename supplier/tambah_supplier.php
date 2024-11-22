@@ -46,9 +46,9 @@ if(isset($_POST["simpan"])){
     validasi($_POST, "alamat", $errors);
 
     if(empty($errors)){
-        $query = "INSERT INTO supplier VALUES ('', '$nama', '$telp', '$alamat');";
+        $query = "INSERT INTO supplier VALUES (NULL, '$nama', '$telp', '$alamat');";
         if(mysqli_query($conn, $query)){
-            header("Location: tampilan_supplier.php");
+            header("Location: index.php");
             exit;
         }
     } else {
@@ -59,7 +59,7 @@ if(isset($_POST["simpan"])){
         echo "</ul></div>";
     }
 } else if(isset($_POST["batal"])){
-    header("Location: tampilan_supplier.php");
+    header("Location: index.php");
     exit;
 }
 ?>

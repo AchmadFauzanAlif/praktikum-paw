@@ -122,13 +122,13 @@ if(isset($_POST['cari']) && isset($_POST['tanggalAwal'])){
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="tampilan_transaksi.php">Transaksi</a>
+                    <a class="nav-link" href="../index.php">Transaksi</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="barang.php">Barang</a>
+                    <a class="nav-link" href="../barang/index.php">Barang</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../supplier/tampilan_supplier.php">Supplier</a>
+                    <a class="nav-link" href="../supplier/index.php">Supplier</a>
                 </li>
             </ul>
         </div>

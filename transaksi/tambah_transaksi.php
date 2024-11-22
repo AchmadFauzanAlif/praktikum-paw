@@ -95,7 +95,7 @@ if(isset($_POST["tambah_transaksi"]) && isset($_POST["pelanggan_id"])) {
             <select name="pelanggan_id" id="pelanggan" class="form-control">
                 <option value="" disabled selected>Pilih Pelanggan</option>
                 <?php foreach($result as $rows) : ?>
-                    <option value="<?php echo $rows["id"] ?>"><?php echo $rows["id"] ?></option>
+                    <option value="<?php echo $rows["id"] ?>"><?php echo $rows["nama"] ?></option>
                 <?php endforeach; ?>
             </select>
         </div>

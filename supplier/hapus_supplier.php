@@ -10,7 +10,7 @@ if($_GET["id"] > 0){
     $id = $_GET["id"];
     $hapus = "DELETE FROM supplier WHERE id = $id";
     if(mysqli_query($conn, $hapus)){
-        header("Location: tampilan_supplie.php");
+        header("Location: index.php");
         exit;
     }
 }

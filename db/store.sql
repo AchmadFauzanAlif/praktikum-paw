@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Nov 18, 2024 at 02:30 AM
+-- Generation Time: Nov 22, 2024 at 08:32 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.3.13
 
@@ -50,7 +50,8 @@ INSERT INTO `barang` (`id`, `kode_barang`, `nama_barang`, `harga`, `stok`, `supp
 (38, 'BRG007', 'Sabun Mandi', 4000, 60, 34),
 (39, 'BRG008', 'Sabun Cuci', 12000, 40, 35),
 (40, 'BRG009', 'Sabun muka', 5500, 90, 36),
-(41, 'BRG010', 'Air Mineral', 2500, 75, 37);
+(41, 'BRG010', 'Air Mineral', 2500, 75, 37),
+(49, 'BRG111', 'Kanitu', 100000, 5, 34);
 
 -- --------------------------------------------------------
 
@@ -71,11 +72,12 @@ CREATE TABLE `pelanggan` (
 --
 
 INSERT INTO `pelanggan` (`id`, `nama`, `jenis_kelamin`, `telp`, `alamat`) VALUES
-(1, 'kiboy', 'L', '081234567895', 'Jl. Pahlawan No.1'),
+(1, 'Kiboy', 'L', '081234567895', 'Jl. Pahlawan No.1'),
 (2, 'lutpi', 'L', '082234567896', 'Jl. Pahlawan No.2'),
 (3, 'keys', 'P', '083234567897', 'Jl. Pahlawan No.3'),
-(4, 'meilin', 'P', '084234567898', 'Jl. Pahlawan No.4'),
-(5, 'sans', 'P', '085234567899', 'Jl. Pahlawan No.5');
+(4, 'Hippo', 'P', '084234567898', 'Jl. Pahlawan No.4'),
+(5, 'sans', 'P', '085234567899', 'Jl. Pahlawan No.5'),
+(8, 'OhMyVenus', 'L', '081234776578', 'Jl. Belakang');
 
 -- --------------------------------------------------------
 
@@ -123,7 +125,7 @@ INSERT INTO `supplier` (`id`, `nama`, `telp`, `alamat`) VALUES
 (33, 'juhri', '081234567890', 'Jalan neraka No.1'),
 (34, 'jahuri', '082234567891', 'Jalan kelapa No.2'),
 (35, 'eko', '083234567892', 'Jalan burhan No.3'),
-(36, 'rahmat', '084234567893', 'Jalan sutomo No.4'),
+(36, 'rahmat', '084234567893', 'Jalan Sutomo No.4'),
 (37, 'tono', '085234567894', 'Jalan gading No.5');
 
 -- --------------------------------------------------------
@@ -153,7 +155,8 @@ INSERT INTO `transaksi` (`id`, `waktu_transaksi`, `keterangan`, `total`, `pelang
 (31, '2024-11-09', 'diantar', 6000, 1),
 (32, '2024-11-10', 'belanja di tempat', 40000, 2),
 (33, '2024-11-11', 'Belanja ditempat', 12000, 3),
-(34, '2024-11-13', 'Cash On Delevery', 60000, 3);
+(34, '2024-11-13', 'Cash On Delevery', 60000, 3),
+(35, '2024-11-22', 'anna', 0, 8);
 
 -- --------------------------------------------------------
 
@@ -268,7 +271,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `barang`
 --
 ALTER TABLE `barang`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+
+--
+-- AUTO_INCREMENT for table `pelanggan`
+--
+ALTER TABLE `pelanggan`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `pembayaran`
@@ -280,13 +289,13 @@ ALTER TABLE `pembayaran`
 -- AUTO_INCREMENT for table `supplier`
 --
 ALTER TABLE `supplier`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `user`
@@ -314,7 +323,7 @@ ALTER TABLE `pembayaran`
 -- Constraints for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  ADD CONSTRAINT `transaksi_ibfk_1` FOREIGN KEY (`pelanggan_id`) REFERENCES `pelanggan` (`id`);
+  ADD CONSTRAINT `transaksi_ibfk_1` FOREIGN KEY (`pelanggan_id`) REFERENCES `pelanggan` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `transaksi_detail`

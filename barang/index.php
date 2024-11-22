@@ -18,6 +18,9 @@ $i = 1
 <body>
 <div class="container mt-5">
     <h2 class="text-center">Data Barang</h2>
+    <div class="text-right mb-3">
+        <a href="tambah_barang.php" class="btn btn-primary">Tambah Barang</a>
+    </div>
     <table class="table table-bordered table-striped table-hover">
         <thead class="thead-dark">
             <tr>
@@ -42,10 +45,9 @@ $i = 1
                     <td><?php echo $rows["stok"] ?></td>
                     <td><?php echo $rows["supplier_id"] ?></td>
                     <td>
-                        <form action="halaman_utama.php" method="post">
-                            <button type="submit" name="hapus" value="<?php echo $rows["id"]?>" class="btn btn-danger btn-sm" onclick="return confirm('Anda yakin ingin menghapus barang ini?')">Delete</button>
-                        </form>
-                    </td>
+                                <a href="hapus_barang.php?id=<?php echo $rows["id"] ?>" class="btn btn-danger btn-sm" onclick="return confirm('Anda yakin ingin menghapus supplier ini?')">Hapus</a>
+                                <a href="edit_barang.php?id=<?php echo $rows["id"] ?>" class="btn btn-warning btn-sm">Edit</a>
+                            </td>
                 </tr>
                 <?php $i += 1; ?>
             <?php endforeach; ?>

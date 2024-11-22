@@ -2,6 +2,11 @@
 session_start();
 include "function.php";
 
+if (isset($_SESSION["user"]) && $_SESSION["user"] != null) {
+    header("Location: index.php");
+    exit();
+}
+
 $errors = [];
 if(isset($_POST["login"])) {
     checkLogin($_POST, $errors);

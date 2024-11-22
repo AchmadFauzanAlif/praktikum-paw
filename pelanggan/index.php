@@ -1,8 +1,13 @@
 <?php 
 session_start();
+
 include "../function.php";
+if($_SESSION["user"] == null) {
+    header("Location: ../login.php");
+}
 
 $result = query("SELECT * FROM pelanggan");
+
 
 ?>
 
@@ -47,6 +52,9 @@ $result = query("SELECT * FROM pelanggan");
                 <?php endforeach; ?>
             </tbody>
         </table>
+        <div class="text-left mb-3">
+            <a href="../index.php" class="btn btn-primary">Kembali</a>
+        </div>
     </div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

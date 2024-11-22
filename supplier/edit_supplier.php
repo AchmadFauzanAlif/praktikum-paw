@@ -51,7 +51,7 @@ if(isset($_POST["update"])){
     if(empty($errors)){
         $edit = "UPDATE `supplier` SET `nama`='$nama',`telp`='$telp',`alamat`='$alamat' WHERE id = $id";
         if(mysqli_query($conn, $edit)){
-            header("Location: tampilan_supplier.php");
+            header("Location: index.php");
             exit;
         }
 
@@ -64,7 +64,7 @@ if(isset($_POST["update"])){
     }
 
 } else if(isset($_POST["batal"])){
-    header("Location: tampilan_supplier.php");
+    header("Location: index.php");
     exit;
 }
 ?>
