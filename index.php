@@ -8,6 +8,11 @@ if($_SESSION["user"] == null) {
 
 $level = $_SESSION["user"]["level"];
 
+if($level == 1 ) {
+    header("Location: supplier/index.php");
+    exit;
+}
+
 $transaksi = "SELECT 
         transaksi.id, 
         transaksi.waktu_transaksi, 

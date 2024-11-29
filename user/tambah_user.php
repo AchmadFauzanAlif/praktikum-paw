@@ -1,5 +1,15 @@
 <?php 
-include "function.php";
+include "../function.php";
+
+if($_SESSION["user"] == null) {
+    header("Location: login.php");
+}
+
+$level = $_SESSION["user"]["level"];
+if($level == 2 ) {
+    header("Location: ../index.php");
+    exit;
+}
 
 if(isset($_POST["simpan"])) {
     $username = $_POST["username"];

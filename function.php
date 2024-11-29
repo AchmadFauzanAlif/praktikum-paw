@@ -23,8 +23,19 @@ function checkLogin($data, &$error) {
         $user = mysqli_fetch_assoc($result);
         $_SESSION['user'] = $user;
         $_SESSION['level'] = $user['level'] == 1 ? 'owner': 'kasir';
+        
 
-        header("Location: index.php");
+        if($_SESSION['user']['level'] == 1) {
+            header("Location: supplier/index.php");
+            exit;
+        } 
+        else if ($_SESSION['user']['level'] == 2) {
+            header("Location: index.php");
+            exit;
+        }
+
+
+
     } else {
         $error[] = "Username dan password salah";
     }

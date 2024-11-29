@@ -6,6 +6,13 @@ if($_SESSION["user"] == null) {
     header("Location: ../login.php");
 }
 
+$level = $_SESSION["user"]["level"];
+if($level == 2 ) {
+    header("Location: ../index.php");
+    exit;
+}
+
+
 $result = query("SELECT * FROM pelanggan");
 
 

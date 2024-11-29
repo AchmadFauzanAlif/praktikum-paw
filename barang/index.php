@@ -2,6 +2,13 @@
 session_start();
 include "../function.php";
 
+
+$level = $_SESSION["user"]["level"];
+if($level == 2 ) {
+    header("Location: ../index.php");
+    exit;
+}
+
 $barang = query("SELECT * FROM barang");
 $i = 1 
 

@@ -7,6 +7,13 @@ if($_SESSION["user"] == null) {
     header("Location: ../login.php");
 }
 
+$level = $_SESSION["user"]["level"];
+if($level == 2 ) {
+    header("Location: ../index.php");
+    exit;
+}
+
+
 
 if (isset($_POST['add'])) {
     $nama = $_POST['nama'];

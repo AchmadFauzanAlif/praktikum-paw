@@ -1,5 +1,16 @@
 <?php 
 session_start();
+
+if($_SESSION["user"] == null) {
+    header("Location: login.php");
+}
+
+$level = $_SESSION["user"]["level"];
+if($level == 2 ) {
+    header("Location: ../index.php");
+    exit;
+}
+
 include "../function.php";
 $result = query("SELECT * FROM user");
 ?>

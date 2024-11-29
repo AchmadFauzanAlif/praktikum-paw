@@ -1,8 +1,16 @@
 <?php 
 session_start();
-if($_SESSION["user"] == null) {
+if(empty($_SESSION["user"])) {
     header("Location: ../login.php");
 }
+
+$level = $_SESSION["user"]["level"];
+
+if($level == 1 ) {
+    header("Location: ../supplier/index.php");
+    exit;
+}
+
 include "../function.php";
 
 $query = "SELECT * FROM pelanggan";

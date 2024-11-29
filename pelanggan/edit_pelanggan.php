@@ -4,8 +4,15 @@ session_start();
 include "../function.php";
 if($_SESSION["user"] == null) {
     header("Location: ../login.php");
+    exit;
 }
 
+
+$level = $_SESSION["user"]["level"];
+if($level == 2 ) {
+    header("Location: ../index.php");
+    exit;
+}
 
 $id = $_GET['id'];
 

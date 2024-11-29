@@ -5,6 +5,13 @@ if($_SESSION["user"] == null) {
     header("Location: ../login.php");
 }
 
+$level = $_SESSION["user"]["level"];
+
+if($level == 2 ) {
+    header("Location: ../index.php");
+    exit;
+}
+
 $query = "SELECT * FROM supplier";
 $result = mysqli_query($conn, $query);
 
@@ -81,7 +88,7 @@ if(isset($_GET["cari"])) {
         <?php endif; ?>
 
         <div class="text-left mb-3">
-            <a href="../index.php" class="btn btn-primary">Kembali</a>
+            <a class="btn btn-primary text-light" href="../logout.php" onclick="return confirm('Apakah Anda yakin ingin logout?')">Logout</a>
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
